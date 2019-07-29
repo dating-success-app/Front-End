@@ -1,18 +1,14 @@
-import React, { useState } from "react";
-
+import React from "react";
 import "./App.css";
-// import MemberForm from "./MemberForm";
+import { FormExampleField } from "./components/Form";
 
-export default function App() {
-  // const [team, setTeam] = useState("team members");
-
+function App() {
   return (
     <div className="App">
-      <h1>Team Member Sign Up</h1>
-      <div>
-        Hrllo
-        {/* <MemberForm /> */}
+      <div className="Form">
+        <FormExampleField />
       </div>
     </div>
   );
 }
+export default App;
