@@ -7,7 +7,7 @@ export const FormExampleField = () => (
       <label>Give us a 5 star description about yourself!</label>
       <Form.Field
         control={Input}
-        label="Bio"
+        // label="Bio"
         placeholder="Tell us more about yourself..."
       />
     </Form.Field>
