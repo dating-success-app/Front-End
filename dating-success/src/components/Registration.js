@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Registration = () => {
+const RegistrationForm = () => {
 
     const [userInfo, setUserInfo] = useState({
         firstName: "",
@@ -91,7 +91,7 @@ const Registration = () => {
     )
 }
 
-export default Registration;
+export default RegistrationForm;
 
 //First Name //Last Name
 //Mobile Number or Email
