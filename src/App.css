@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 100px;
 }
 
 .App-logo {
@@ -42,10 +43,13 @@ input {
   transition: 0.3s all;
 }
 
-.field label {
-  padding: 50px;
-  margin-top: 50%;
+.label {
   color: black;
   font-weight: bold;
+  text-align: center;
+  padding: 25px;
+}
 
+.button {
+  margin-top: 10px;
 }

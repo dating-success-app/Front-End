@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import { FormExampleField } from "./components/Form";
+import { Description } from "./components/Form";
 
 function App() {
   return (
     <div className="App">
       <div className="Form">
-        <FormExampleField />
+        <Description />
       </div>
     </div>
   );
