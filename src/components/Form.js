@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Header, Image } from "semantic-ui-react";
 import "../App.css";
 import axios from "axios";
+import heart from "../images/heart.jpg";
 
 export const Description = props => {
   const [input, setInput] = useState({
     description: ""
   });
+  const [shortDescription, setShortDescription] = useState(false);
 
   const inputHandler = e => {
     console.log("target name", e.target.name);
@@ -16,34 +18,50 @@ export const Description = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    axios
-      .post(
-        `https://dating-success.herokuapp.com/api/auth/description`,
-        input.description
-      )
-      .then(response => {
-        setInput(response.data);
+    if (input.description.length < 25) {
+      console.log("enter more info!");
+      setShortDescription(true);
+    } else {
+      axios
+        .post(
+          `https://dating-success.herokuapp.com/api/auth/description`,
+          input.description
+        )
+        .then(response => {
+          setInput(response.data);
 
-        console.log("Page is working", response.data);
-      })
-      .catch(error => {
-        console.log("Page is down", error);
+          console.log("Page is working", response.data);
+        })
+        .catch(error => {
+          console.log("Page is down", error);
+        });
+
+      setInput({
+        description: ""
       });
-
-    setInput({
-      description: ""
-    });
+    }
   };
   console.log("props", props);
   console.log("input", input);
   return (
     <Form onSubmit={submitHandler}>
       <div className="header">
-        <h2>Give us a 5 star description about yourself!</h2>
+        <Header as="h2">
+          <Image circular src={heart} style={{ width: "75px" }} /> Give us a 5
+          star description about yourself!
+        </Header>
       </div>
       <div>
         <label htmlFor="description">
-          description:{" "}
+          Description:{" "}
+          <div>
+            {shortDescription && (
+              <div className="short">
+                <p>your description is too short!</p>
+                <p>Try adding some more information about yourself!</p>
+              </div>
+            )}
+          </div>
           <input
             type="text"
             value={input.description}

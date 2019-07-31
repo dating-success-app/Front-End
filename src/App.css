@@ -53,3 +53,10 @@ input {
 .button {
   margin-top: 10px;
 }
+
+.short {
+  color: red;
+  background-color: #fbe7e6;
+  border: 1px solid red;
+  margin: 20px 40px 20px 40px;
+}
