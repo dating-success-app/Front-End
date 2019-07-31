@@ -16,20 +16,24 @@ export const Description = props => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoyLCJ1c2VybmFtZSI6IkFsZXgiLCJpYXQiOjE1NjQ1OTkxNjgsImV4cCI6MTU2NDYxNzE2OH0.L1QrEiCubXJTYQD-D2UyJ1n7gROqj8UGRbAGFzusgsU";
+
   const submitHandler = e => {
     e.preventDefault();
-    if (input.description.length < 25) {
+    if (input.description.length < 10) {
       console.log("enter more info!");
       setShortDescription(true);
     } else {
       axios
         .post(
-          `https://dating-success.herokuapp.com/api/auth/description`,
+          `https://dating-success.herokuapp.com/api/description`,
+          token,
           input.description
         )
         .then(response => {
           setInput(response.data);
-
+          localStorage.setItem("token", token);
           console.log("Page is working", response.data);
         })
         .catch(error => {
@@ -51,9 +55,9 @@ export const Description = props => {
           star description about yourself!
         </Header>
       </div>
-      <div>
+      <div className="description">
         <label htmlFor="description">
-          Description:{" "}
+          {" "}
           <div>
             {shortDescription && (
               <div className="short">

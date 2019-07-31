@@ -8,8 +8,9 @@ function App() {
     <div className="App">
       <div className="Form">
         <Description />
-        <Route path="/" exact component={} />
-        <Route path="/Form" component={Form} />
+        {/* <Route path="/" exact component={Home} />
+        <Route path="/about" exact component={About} /> */}
+        {/* <Route path="/Form" component={Form} /> */}
       </div>
     </div>
   );
