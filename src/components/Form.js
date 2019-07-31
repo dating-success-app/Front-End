@@ -4,7 +4,7 @@ import "../App.css";
 import axios from "axios";
 import heart from "../images/heart.jpg";
 
-export const Description = props => {
+const Description = props => {
   const [input, setInput] = useState({
     description: ""
   });
@@ -39,6 +39,8 @@ export const Description = props => {
         .catch(error => {
           console.log("Page is down", error);
         });
+        // props.history.push('/greet/Luke')
+        // history.push("/score")
 
       setInput({
         description: ""
@@ -79,5 +81,7 @@ export const Description = props => {
         <Button type="submit">Submit!</Button>
       </div>
     </Form>
+    <Route to="/score" render={() => }
   );
 };
+export default Description;
