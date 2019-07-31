@@ -57,7 +57,7 @@ export const Description = props => {
           <div>
             {shortDescription && (
               <div className="short">
-                <p>your description is too short!</p>
+                <p>Your description is too short!</p>
                 <p>Try adding some more information about yourself!</p>
               </div>
             )}
