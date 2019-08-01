@@ -3,7 +3,6 @@ import { Form, Button, Header, Image } from "semantic-ui-react";
 import "../App.css";
 import axios from "axios";
 import logo from "../images/logo.png";
-import Score from "./Score";
 import { Route } from "react-router-dom";
 
 const Description = props => {
@@ -11,6 +10,7 @@ const Description = props => {
     description: ""
   });
   const [shortDescription, setShortDescription] = useState(false);
+  const [score, setScore] = useState(0);
 
   const inputHandler = e => {
     console.log("target name", e.target.name);
@@ -40,6 +40,7 @@ const Description = props => {
           setInput(response.data);
           localStorage.setItem("token", response.data.token);
           console.log("Page is working", response.data);
+          setScore(response.data.score);
         })
         .catch(error => {
           console.log("Page is down", error);
@@ -53,6 +54,7 @@ const Description = props => {
   };
   console.log("props", props);
   console.log("input", input);
+  console.log("my score", score);
   return (
     <div>
       <Form onSubmit={submitHandler}>
@@ -86,8 +88,7 @@ const Description = props => {
           <Button type="submit">Submit!</Button>
         </div>
       </Form>
-
-      <Route path="/score" render={props => <Score {...props} />} />
+      <p>{score}</p>
     </div>
   );
 };
