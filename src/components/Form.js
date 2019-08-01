@@ -3,6 +3,7 @@ import { Form, Button, Header, Image } from "semantic-ui-react";
 import "../App.css";
 import axios from "axios";
 import heart from "../images/heart.jpg";
+import logo from "../images/logo.png";
 
 const Description = props => {
   const [input, setInput] = useState({
@@ -52,10 +53,11 @@ const Description = props => {
   console.log("props", props);
   console.log("input", input);
   return (
+    <>
     <Form onSubmit={submitHandler}>
       <div className="header">
         <Header as="h2">
-          <Image circular src={heart} style={{ width: "75px" }} /> Give us a 5
+          <Image circular src={logo} style={{ width: "175px" }} /> Give us a 5
           star description about yourself!
         </Header>
       </div>
@@ -83,6 +85,8 @@ const Description = props => {
         <Button type="submit">Submit!</Button>
       </div>
     </Form>
+    <div className="score">Congrats! Your score is: {score}</div>
+    </>
   );
 };
 export default Description;
