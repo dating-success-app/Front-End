@@ -88,7 +88,7 @@ const Description = props => {
           <Button type="submit">Submit!</Button>
         </div>
       </Form>
-      <p>{score}</p>
+      <div className="score">Congrats! Your score is: {score}</div>
     </div>
   );
 };
