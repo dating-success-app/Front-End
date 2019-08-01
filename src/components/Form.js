@@ -9,6 +9,7 @@ const Description = props => {
     description: ""
   });
   const [shortDescription, setShortDescription] = useState(false);
+  const [score, setScore] = useState(null);
 
   const inputHandler = e => {
     console.log("target name", e.target.name);
@@ -16,8 +17,7 @@ const Description = props => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoyLCJ1c2VybmFtZSI6IkFsZXgiLCJpYXQiOjE1NjQ1OTkxNjgsImV4cCI6MTU2NDYxNzE2OH0.L1QrEiCubXJTYQD-D2UyJ1n7gROqj8UGRbAGFzusgsU";
+  const token = localStorage.getItem('token');
 
   const submitHandler = e => {
     e.preventDefault();
@@ -26,15 +26,17 @@ const Description = props => {
       setShortDescription(true);
     } else {
       axios
-        .post(
-          `https://dating-success.herokuapp.com/api/description`,
-          token,
-          input.description
-        )
+      .post(`https://dating-success.herokuapp.com/api/description`, input, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`
+        }
+      })
         .then(response => {
           setInput(response.data);
-          localStorage.setItem("token", token);
+          // localStorage.setItem("token", token);
           console.log("Page is working", response.data);
+          setScore(response.data.score);
         })
         .catch(error => {
           console.log("Page is down", error);
@@ -81,7 +83,6 @@ const Description = props => {
         <Button type="submit">Submit!</Button>
       </div>
     </Form>
-    <Route to="/score" render={() => }
   );
 };
 export default Description;
