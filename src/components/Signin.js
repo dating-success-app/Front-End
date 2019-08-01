@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
 
   const [values, setValues] = useState({})
   console.log(values)
@@ -52,7 +52,7 @@ export default function SignIn() {
       .then(res => { 
         console.log(res)
         localStorage.setItem('token', res.data.token);
-
+        props.history.push('/description');
     })
       .catch(error => {
         console.error(error)
