@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Form, Button, Header, Image } from "semantic-ui-react";
 import "../App.css";
 import axios from "axios";
+import heart from "../images/heart.jpg";
 import logo from "../images/logo.png";
-import { Route } from "react-router-dom";
 
 const Description = props => {
   const [input, setInput] = useState({
     description: ""
   });
   const [shortDescription, setShortDescription] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(null);
 
   const inputHandler = e => {
     console.log("target name", e.target.name);
@@ -18,30 +18,32 @@ const Description = props => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const token = localStorage.getItem('token');
+
   const submitHandler = e => {
     e.preventDefault();
     if (input.description.length < 10) {
       console.log("enter more info!");
       setShortDescription(true);
     } else {
-      console.log("my input", input);
       axios
-        .post(`https://dating-success.herokuapp.com/api/description`, input, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJkb2dzIiwiaWF0IjoxNTY0NjgxODgwLCJleHAiOjE1NjQ2OTk4ODB9.6W-w2bbUB04KQ_36DRxJf4p_uQKs5IZERxcE1-nw9KE"
-          }
-        })
+      .post(`https://dating-success.herokuapp.com/api/description`, input, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`
+        }
+      })
         .then(response => {
           setInput(response.data);
-          localStorage.setItem("token", response.data.token);
+          // localStorage.setItem("token", token);
           console.log("Page is working", response.data);
           setScore(response.data.score);
         })
         .catch(error => {
           console.log("Page is down", error);
         });
+        // props.history.push('/greet/Luke')
+        // history.push("/score")
 
       setInput({
         description: ""
@@ -50,42 +52,41 @@ const Description = props => {
   };
   console.log("props", props);
   console.log("input", input);
-  console.log("my score", score);
   return (
-    <div>
-      <Form onSubmit={submitHandler}>
-        <div className="logo">
-          <Image src={logo} style={{ width: "175px" }} />
-        </div>
-        <div className="description">
-          <div className="header">
-            <Header as="h2" /> Give us a 5 star description about yourself!
+    <>
+    <Form onSubmit={submitHandler}>
+      <div className="header">
+        <Header as="h2">
+          <Image circular src={logo} style={{ width: "175px" }} /> Give us a 5
+          star description about yourself!
+        </Header>
+      </div>
+      <div className="description">
+        <label htmlFor="description">
+          {" "}
+          <div>
+            {shortDescription && (
+              <div className="short">
+                <p>Your description is too short!</p>
+                <p>Try adding some more information about yourself!</p>
+              </div>
+            )}
           </div>
-          <label htmlFor="description">
-            {" "}
-            <div>
-              {shortDescription && (
-                <div className="short">
-                  <p>Your description is too short!</p>
-                  <p>Try adding some more information about yourself!</p>
-                </div>
-              )}
-            </div>
-            <input
-              type="text"
-              value={input.description}
-              onChange={inputHandler}
-              placeholder="   Interests, hobbies, favorite TV show..."
-              name="description"
-            />
-          </label>
-        </div>
-        <div className="button">
-          <Button type="submit">Submit!</Button>
-        </div>
-      </Form>
-      <div className="score">Congrats! Your score is: {score}</div>
-    </div>
+          <input
+            type="text"
+            value={input.description}
+            onChange={inputHandler}
+            placeholder="   Interests, hobbies, favorite TV show..."
+            name="description"
+          />
+        </label>
+      </div>
+      <div className="button">
+        <Button type="submit">Submit!</Button>
+      </div>
+    </Form>
+    <div className="score">Congrats! Your score is: {score}</div>
+    </>
   );
 };
 export default Description;
