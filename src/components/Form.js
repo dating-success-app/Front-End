@@ -18,9 +18,6 @@ const Description = props => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  //   const token =
-  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoyLCJ1c2VybmFtZSI6IkFsZXgiLCJpYXQiOjE1NjQ1OTkxNjgsImV4cCI6MTU2NDYxNzE2OH0.L1QrEiCubXJTYQD-D2UyJ1n7gROqj8UGRbAGFzusgsU";
-
   const submitHandler = e => {
     e.preventDefault();
     if (input.description.length < 10) {
@@ -33,7 +30,7 @@ const Description = props => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo4LCJ1c2VybmFtZSI6ImIiLCJpYXQiOjE1NjQ2MDYzNTIsImV4cCI6MTU2NDYyNDM1Mn0.wqcwl9441kUjy0V4-c-Un3b6KHo7sVj5yxjBQV7hEgw"
+              "eyJzdWJqZWN0IjoxMSwidXNlcm5hbWUiOiJkb2dzIiwiaWF0IjoxNTY0NjgxODgwLCJleHAiOjE1NjQ2OTk4ODB9.6W-w2bbUB04KQ_36DRxJf4p_uQKs5IZERxcE1-nw9KE"
           }
         })
         .then(response => {
@@ -45,7 +42,6 @@ const Description = props => {
         .catch(error => {
           console.log("Page is down", error);
         });
-      //   props.history.push("/score");
 
       setInput({
         description: ""
