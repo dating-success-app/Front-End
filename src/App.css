@@ -98,3 +98,9 @@ button.ui.button:hover {
   border: 1px solid maroon;
   margin: 20px 40px 20px 40px;
 }
+
+.makeStyles-paper-1 {
+  background-color: whitesmoke;
+  border-radius: 8px;
+  opacity: .9,
+}
