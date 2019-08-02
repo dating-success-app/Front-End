@@ -2,32 +2,31 @@ body {
   background: url("https://images.unsplash.com/photo-1487035242901-d419a42d17af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=368&q=80")
     no-repeat;
   height: 100vh;
-  background-size: 800px 800px;
+  background-size: 1000px 1000px;
+}
+
+.ui .image {
+  margin-top: 5px;
 }
 
 .App {
   text-align: center;
-  margin-top: 100px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+  margin-top: 50px;
 }
 
 .header {
   background-color: #282c34;
   opacity: 0.8;
-  min-height: 10vh;
+  /* min-height: 10vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 30px;
+  /* padding: 5px; */
   text-align: center;
+  /* margin-top: 5%; */
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
@@ -47,21 +46,14 @@ body {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
+  margin-top: 5%;
   opacity: 0.8;
   border-radius: 6%;
+  font-family: Apple Chancery, cursive;
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 input {
@@ -74,17 +66,45 @@ input {
   transition: 0.3s all;
 }
 
-.label {
-  color: black;
+.regInput {
+  display: flex;
+  justify-content: stretch;
+  border: 1px solid black;
+  background-color: #d0d0d0;
+  width: 30%;
+  height: 120px;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.3s all;
+}
+
+.form label {
+  color: white;
   font-weight: bold;
   text-align: center;
   padding: 25px;
+}
+
+.MuiInputBase-input {
+  font: inherit;
+  color: currentColor;
+  width: 100%;
+  border: 0;
+  height: 1.1875em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  min-width: 0;
+  box-sizing: content-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #d0d0d0;
 }
 
 button.ui.button {
   margin-top: 10px;
   color: white;
   background-color: maroon;
+  padding: 12px 28px;
 }
 
 button.ui.button:hover {
@@ -97,12 +117,6 @@ button.ui.button:hover {
   background-color: #fbe7e6;
   border: 1px solid maroon;
   margin: 20px 40px 20px 40px;
-}
-
-.makeStyles-paper-1 {
-  background-color: whitesmoke;
-  border-radius: 8px;
-  opacity: .9,
 }
 
 .score {
@@ -122,3 +136,75 @@ button.ui.button:hover {
   border-radius: 6%;
   font-family: Apple Chancery, cursive;
 }
+
+input {
+  border: 1px solid black;
+  background-color: #d0d0d0;
+  width: 50%;
+  height: 120px;
+  border-radius: 4px;
+  position: relative;
+  transition: 0.3s all;
+}
+
+.makeStyles-paper-1 {
+  background-color: whitesmoke;
+  border-radius: 8px;
+<<<<<<< HEAD
+  opacity: .9,
+}
+
+.score {
+  font-size: 32px;
+  color: whitesmoke;
+  background-color: maroon;
+  min-height: 8vh;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+=======
+  opacity: 0.9;
+}
+
+.form {
+  background-color: #282c34;
+  min-height: 8vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+>>>>>>> fc3ffd41bd80b7bcdf5f15e184ea4428a046840c
+  margin-bottom: 5%;
+  margin-top: 5%;
+  opacity: 0.8;
+  border-radius: 6%;
+  font-family: Apple Chancery, cursive;
+<<<<<<< HEAD
+}
+=======
+}
+
+.regButton button {
+  margin-top: 10px;
+  color: white;
+  background-color: maroon;
+  padding: 12px 28px;
+  margin-top: 35px;
+}
+
+.regButton button:hover {
+  background-color: #be3446;
+  color: black;
+}
+
+.Main {
+  background: black;
+}
+>>>>>>> fc3ffd41bd80b7bcdf5f15e184ea4428a046840c
