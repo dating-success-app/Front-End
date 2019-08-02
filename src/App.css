@@ -69,6 +69,7 @@ input {
 .regInput {
   display: flex;
   justify-content: stretch;
+  flex-direction: column;
   border: 1px solid black;
   background-color: #d0d0d0;
   width: 30%;
@@ -98,6 +99,11 @@ input {
   box-sizing: content-box;
   -webkit-tap-highlight-color: transparent;
   background-color: #d0d0d0;
+}
+
+.MuiFormControl-root {
+  width: 100%;
+  height: 70px;
 }
 
 button.ui.button {
@@ -150,22 +156,6 @@ input {
 .makeStyles-paper-1 {
   background-color: whitesmoke;
   border-radius: 8px;
-<<<<<<< HEAD
-  opacity: .9,
-}
-
-.score {
-  font-size: 32px;
-  color: whitesmoke;
-  background-color: maroon;
-  min-height: 8vh;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  text-align: center;
-  margin-left: 15%;
-  margin-right: 15%;
-=======
   opacity: 0.9;
 }
 
@@ -180,15 +170,11 @@ input {
   text-align: center;
   margin-left: 5%;
   margin-right: 5%;
->>>>>>> fc3ffd41bd80b7bcdf5f15e184ea4428a046840c
   margin-bottom: 5%;
   margin-top: 5%;
   opacity: 0.8;
   border-radius: 6%;
   font-family: Apple Chancery, cursive;
-<<<<<<< HEAD
-}
-=======
 }
 
 .regButton button {
@@ -207,4 +193,8 @@ input {
 .Main {
   background: black;
 }
->>>>>>> fc3ffd41bd80b7bcdf5f15e184ea4428a046840c
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+}

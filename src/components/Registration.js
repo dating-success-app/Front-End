@@ -69,14 +69,13 @@ const RegistrationForm = props => {
 
   return (
     <Container component="main" maxWidth="sm">
-      {/* <Paper> */}
       <div className="logo">
         <Image src={logo} style={{ width: "175px" }} />
       </div>
       <div className="form">
-        <form onSubmit={handleSubmit}>
+        <form className="registrationForm" onSubmit={handleSubmit}>
           <label>
-            <input className="regInput"
+            <TextField className="regInput"
               type="text"
               name="username"
               label="User Name"
@@ -84,7 +83,7 @@ const RegistrationForm = props => {
             />
           </label>
           <label>
-          <input className="regInput"
+          <TextField className="regInput"
               type="password"
               name="password"
               label="Password"
@@ -96,7 +95,6 @@ const RegistrationForm = props => {
           </div>
         </form>
       </div>
-      {/* </Paper> */}
     </Container>
   );
 };
